@@ -13,7 +13,7 @@ import android.widget.Button;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
-    private Button BnAddUser,BnReadUser;
+    private Button BnAddUser;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -27,9 +27,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View view= inflater.inflate(R.layout.fragment_home, container, false);
         BnAddUser=view.findViewById(R.id.addusers);
         BnAddUser.setOnClickListener(this);
-        BnAddUser=view.findViewById(R.id.viewuser);
-        BnReadUser.setOnClickListener(this);
-
         return view;
     }
 
@@ -40,11 +37,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         {
             case R.id.addusers:
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new AddUserFragment()).
-                        addToBackStack(null).commit();
-                break;
-
-            case R.id.viewuser:
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ReadFragment()).
                         addToBackStack(null).commit();
                 break;
 
